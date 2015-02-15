@@ -6,12 +6,11 @@
     <link rel="stylesheet" href="node_modules/codemirror/lib/codemirror.css">
 </head>
 <body>
-<div class="content"><pre><span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span
-        class="mi">1</span><span class="p">;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span
-            class="s2">&quot;xxx&quot;</span><span class="p">);</span>
-</pre>
-</div>
+<span class="content">var db = new PouchDB('kittens');
+db.info().then(function (info) {
+  console.log('We have a database: ' + JSON.stringify(info));
+});
+</span>
 <div id="output"></div>
 <button id="eval">Run</button>
 <script src="app.js"></script>

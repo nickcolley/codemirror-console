@@ -4,6 +4,7 @@
  */
 "use strict";
 var MirrorConsole = require("./lib/mirror-console");
+var PouchDB = require('pouchdb');
 var content = document.querySelector(".content");
 var editor = new MirrorConsole();
 editor.setText(content.textContent);
@@ -21,7 +22,7 @@ document.getElementById("eval").addEventListener("click", function () {
             document.getElementById("output").appendChild(line(arg));
         }
     }
-    editor.runInContext({ console: consoleMock },function (error, result) {
+    editor.runInContext({ PouchDB: PouchDB, console: consoleMock },function (error, result) {
         if (error) {
             console.error(error);
         }
